@@ -53,7 +53,7 @@ include:
 comments:
   provider: "disqus"
   disqus:
-    shortname: "manurathi1-github-io"
+    shortname: "manurathi-github-io"
 
 plugins:
   - jekyll-paginate
