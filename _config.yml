@@ -53,7 +53,7 @@ include:
 comments:
   provider: "disqus"
   disqus:
-    shortname: "manurathi1.github.io"
+    shortname: "manurathi1-github-io"
 
 plugins:
   - jekyll-paginate
@@ -66,7 +66,7 @@ plugins:
 author:
   name   : "Manu Rathi"
   avatar : "/assets/images/manu.jpg"
-  bio    : "Hi!, I am Manu Rathi, graduated from IIT Bombay class of 2017"
+  bio    : "Hi, I am Manu Rathi, graduated from IIT Bombay class of 2017"
   links:
     - label: "Resume"
       icon: "far fa-fw fa-file-pdf"
