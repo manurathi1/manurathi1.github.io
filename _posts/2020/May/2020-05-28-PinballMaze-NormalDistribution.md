@@ -16,3 +16,7 @@ Imagine Pinball and a maze like this, Now one has to put the balls in the maze f
 we have to guess if we do this for a large number of times n -> infinity
 
 ![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/pinball.png)
+
+
+
+$$mean = \frac{\displaystyle\sum_{i=1}^{n} x_{i}}{n}$$
