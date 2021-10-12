@@ -28,7 +28,7 @@ in excel,
 NORM.S.INV(rand()), rand() is from univform dist.(0,1), NORM.S.INV is inverse of cumulative normal distribution  
 ```
 
-![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/2021/Oct/TwoMomentSimulation_Mean.png) ![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/2021/Oct/TwoMomentSimulation_Std.png)
+![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/2021/Oct/TwoMomentSimulation_Mean.jpg) ![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/2021/Oct/TwoMomentSimulation_Std.jpg)
 
 
 as shown in this graph number of simulation / data points is critical to accuracy of the simulation. higher data points will lead to higher accuracy.  higher accuracy to expected mean and variance with less data points discussed **here** using random matrix theory
@@ -36,9 +36,9 @@ as shown in this graph number of simulation / data points is critical to accurac
 
 ## Multivariate simulation ( >1 Dimension )
 
-Idea is to simulate a series $$ X \sim N(\Mu , \Sigma) $$ if $\Mu$  = array of mean and $\Sigma$ = covariance are given. 
+Idea is to simulate a series $$ X \sim N(M , \Sigma) $$ if $M$  = array of mean and $\Sigma$ = covariance are given. 
 
-$$ X = \Mu + N(0,1) \times \sqrt{\Sigma} $$
+$$ X = M + N(0,1) \times \sqrt{\Sigma} $$
 $\sqrt{\Sigma} =L$  is cholskey decomposition of $\Sigma = LL^{T}$ 
 
 
