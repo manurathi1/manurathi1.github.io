@@ -14,7 +14,12 @@ This article will look into how to simulate a series which has normal distributi
 in the first part, we will look into the case of 1 dimension. in the second ,we will see how to incorporate covariance for more than 1 dimension / series. 
 
 ## Univariate simulation ( 1 Dimension )
-Idea is to simulate a series $$ X \sim N(\mu , \sigma) $$ if $\mu$ and $\sigma$ are given.
+Idea is to simulate a series 
+$$ 
+X \sim N(\mu , \sigma) 
+$$ 
+
+if $\mu$ and $\sigma$ are given.
 
 ![no-alignment]({{ site.url }}{{ site.baseurl }}/assets/images/2021/Oct/twoMomentNorm.png)
 
