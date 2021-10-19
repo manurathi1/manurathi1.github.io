@@ -1,8 +1,8 @@
 ---
-title: "Four Moment Simulation - Mean, Variance, Skew, Kutosis"
+title: "Four Moment Simulation - Mean, Variance, Skew, Kurtosis"
 # categories:
 #   - maths
-excerpt: "Simulate data points when four moments are known i.e. mean and standard deviation is given" 
+excerpt: "Simulate non normal data points using Fleishman power method" 
 tags:
   - Probability 
 
