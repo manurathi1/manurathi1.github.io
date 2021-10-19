@@ -11,7 +11,7 @@ tags:
 --- 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1OonMdRn8GxvdiRFQ17sm2d0qyiLISxyS?usp=sharing)
 
-This article will look into how to simulate a series which has normal distribution i.e. higher moments ( skew, Kurt ) is 0. for simulation with 4 moments see **here**. <br/>
+This article will look into how to simulate a series which has normal distribution i.e. higher moments ( Skew, Excess Kurt ) is 0. for simulation with 4 moments see **here**. <br/>
 In the first part, we will look into the case of 1 dimension. in the second ,we will see how to incorporate covariance for more than 1 dimension. 
 
 ## Univariate simulation ( 1 Dimension )
@@ -28,13 +28,13 @@ if $\mu$ and $\sigma$ are given.
 
 <!-- ![]({{ site.url }}{{ site.baseurl }}/assets/images/2021/Oct/twoMomentNorm.png) -->
 
-* probability distribution for a R.V. that has a normal distribution. every point $x_{i}$ = $\mu$ + z $\times$ $\sigma$ where z $\in$ ($-\infty$, $\infty$)  
+> probability distribution for a R.V. that has a normal distribution. every point <br/> $x_{i}$ = $\mu$ + z $\times$ $\sigma$ where z $\in$ ($-\infty$, $\infty$)  
 
 $$ X \sim N(\mu , \sigma) | z \sim N(0,1)  $$
 
 $$ X = \mu + N(0,1) \times \sigma $$
 
-To generate N(0,1) we can use Box-Muller transformation
+To generate N(0,1) we can use Box-Muller transformation. <br/>
 in excel:
 ```
 NORM.S.INV(rand()), rand() is from univform dist.(0,1), NORM.S.INV is inverse of cumulative normal distribution  
@@ -49,7 +49,7 @@ NORM.S.INV(rand()), rand() is from univform dist.(0,1), NORM.S.INV is inverse of
 </figure>
 
 
-* number of simulation / data points is critical to accuracy of the simulation. higher data points will lead to higher accuracy.
+> number of simulation / data points is critical to accuracy of the simulation. higher data points will lead to higher accuracy.
 
 Higher accuracy to expected mean and variance with less data points discussed **here** using random matrix theory
 
