@@ -68,9 +68,9 @@ author:
   avatar : "/assets/images/manu.jpg"
   bio    : "Hi, I am Manu Rathi, graduated from IIT Bombay class of 2017"
   links:
-    - label: "Resume"
-      icon: "far fa-fw fa-file-pdf"
-      url: "/assets/Files/m.pdf"
+    # - label: "Resume"
+    #   icon: "far fa-fw fa-file-pdf"
+    #   url: "/assets/Files/m.pdf"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/manurathi2"

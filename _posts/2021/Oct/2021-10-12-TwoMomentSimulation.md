@@ -5,13 +5,14 @@ title: "Two Moment Simulation - Mean and variance"
 excerpt: "Simulate data points when first two moments are known i.e. mean and standard deviation is given" 
 tags:
   - Probability 
+  - Simulation
 
 # comments: true
 
 --- 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1OonMdRn8GxvdiRFQ17sm2d0qyiLISxyS?usp=sharing)
 
-This article will look into how to simulate a series which has normal distribution i.e. higher moments ( Skew, Excess Kurt ) is 0. for simulation with 4 moments see **here**. <br/>
+This article will look into how to simulate a series which has normal distribution i.e. higher moments ( Skew, Excess Kurt ) is 0. for simulation with 4 moments refer to this <a href = "/FourMomentSimulation/"> article </a> <br/>
 In the first part, we will look into the case of 1 dimension. in the second ,we will see how to incorporate covariance for more than 1 dimension. 
 
 ## Univariate simulation ( 1 Dimension )

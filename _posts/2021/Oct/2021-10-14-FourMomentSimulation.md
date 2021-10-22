@@ -2,9 +2,10 @@
 title: "Four Moment Simulation - Mean, Variance, Skew, Kurtosis"
 # categories:
 #   - maths
-excerpt: "Simulate non normal data points using Fleishman power method" 
+excerpt: "Simulate non normal data points using Fleishman power method targeting first four moments" 
 tags:
   - Probability 
+  - Simulation
 
 # comments: true
 
@@ -35,13 +36,13 @@ we would solve for
 
 $$ E(Y) = 0 , E(Y^{2}) = 1, E(Y^{3}) = \gamma_{1}, E(Y^{4}) = \gamma_{2} + 3 $$
 
-The following 4 equations we got by solving the above equation:
+The following 4 equations we got by solving the above equations:
 
 $$ F_1(b,c,d) : b^2+6bd+ 2c^2 +15d^2-1 =0 $$
 
 $$ F_2(b,c,d) : 2c(b^2+24bd+105d^2+2)-\gamma_1=0$$
 
-$$ F_3(b,c,d) : 24(bd + c^2[1 + b^2 + 28bd] + d^2[12 + 48bd + 141c^2 + 225d^2])-\gamma_2 = 0$$
+$$ F_3(b,c,d) : 24(bd + c^2[1 + b^2 + 28bd] + d^2[12 + 48bd + 141c^2 + 225d^2])-\gamma_2 = 0 $$
 
 $$ a = -c $$
 
