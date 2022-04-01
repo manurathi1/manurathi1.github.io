@@ -12,20 +12,21 @@ tags:
 --- 
 <!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1OonMdRn8GxvdiRFQ17sm2d0qyiLISxyS?usp=sharing) -->
 
-
+<!-- ## Introduction -->
 In the previous  <a href = "/TwoMomentSimulation/"> article </a>  we discussed how to simulate normal distribution points for a given mean and standard deviation / covariance matrix <br/>
 Here, we will discuss how to generate non normal numbers with unimodal distribution i.e. simulate using all four moments ( mean , standard deviation, skewness and kurtosis ) ignoring coskewness and cokurtosis <br/>
 
 We refer to paper by Hao Luo[1], which uses Fleishman's power method[2] to simulate non normal data 
 
-The idea is to first simulate a series
+The idea is to first simulate a series Y using power method
 
-$$ G \sim D(0,1, \gamma_{1}, \gamma_{2}) $$ 
+$$ Y \sim D(0,1, \gamma_{1}, \gamma_{2}) $$ 
 
 where $\gamma_{1}$, $\gamma_{2}$  is the skewness and excess kurtosis of the distribution D, resp. <br/>
 
-Second, we will use our understanding from previous article ^link to covert first two moments of D from 0,1 to $\mu$ , $\sigma$ / $\Sigma$
+Second, we will use our understanding from previous <a href = "/TwoMomentSimulation/"> article </a> to covert first two moments of D from [0,1] to [$\mu$ , $\sigma$ / $\Sigma$]
 
+## Algo:
 As per power method, Y can be defined as the third degree polynomial of X
 
 $$ Y = a + bX + cX^{2} + dX^{3} $$ 
@@ -62,15 +63,15 @@ $$ \gamma_2 = −1.2264489 + 1.6410373 \gamma_1^2  $$
 
 Finally, apply the transformation:
 
-$$ G[\mu, \Sigma, \gamma_1, \gamma_2] = \mu + \sqrt{\Sigma} \times G[0, 1, \gamma_1, \gamma_2] $$
+$$ Y[\mu, \Sigma, \gamma_1, \gamma_2] = \mu + \sqrt{\Sigma} \times Y[0, 1, \gamma_1, \gamma_2] $$
 
-Let's take beta distribution for example with $\alpha$  = 4.5 and $\beta$ = 1. Let's also include a normal distribution with mean = $\mu$($\beta$($4.5,1$)), std = $\sigma$($\beta$($4.5,1$))
-
-
-<p align="center"><img src="/assets/images/2021/Oct/FourMomentSimulation_Sim.jpg"></p>
+## Results:
+Let's try to simulate beta distribution with $\alpha$  = 4.5 and $\beta$ = 1. The chart shows PDF of Beta , Simulated beta and Normal distribution with mean = $\mu$($\beta$($4.5,1$)), std = $\sigma$($\beta$($4.5,1$)).
 
 
-Table:
+<a href="/assets/images/2021/Oct/FourMomentSimulation_Sim.jpg"><img src="/assets/images/2021/Oct/FourMomentSimulation_Sim.jpg"></a>
+
+Table with first four moment values for all 3 cases:
 
 | Stats | Beta | Normal | Simulation |
 | :-------: | :---------: | :---------: | :---------: | 
