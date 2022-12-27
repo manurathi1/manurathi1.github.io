@@ -36,7 +36,7 @@ def oneThrow(numOfLayers):
   return decideNumbers,finalContainerSlot
 
 ```
-numberOfLayers = 100
+numberOfLayers = 100, 
 numberOfThrows = 10000
 
 ```python

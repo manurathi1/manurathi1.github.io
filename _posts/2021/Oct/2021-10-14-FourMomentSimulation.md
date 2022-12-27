@@ -10,7 +10,7 @@ tags:
 # comments: true
 
 --- 
-<!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1OonMdRn8GxvdiRFQ17sm2d0qyiLISxyS?usp=sharing) -->
+<!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1hojbyOgCWpUFq0tphAHxXv_Dtb2qmMPa?usp=sharing) -->
 
 <!-- ## Introduction -->
 In the previous  <a href = "/TwoMomentSimulation/"> article </a>  we discussed how to simulate normal distribution points for a given mean and standard deviation / covariance matrix <br/>
@@ -66,19 +66,24 @@ Finally, apply the transformation:
 $$ Y[\mu, \Sigma, \gamma_1, \gamma_2] = \mu + \sqrt{\Sigma} \times Y[0, 1, \gamma_1, \gamma_2] $$
 
 ## Results:
-Let's try to simulate beta distribution with $\alpha$  = 4.5 and $\beta$ = 1. The chart shows PDF of Beta , Simulated beta and Normal distribution with mean = $\mu$($\beta$($4.5,1$)), std = $\sigma$($\beta$($4.5,1$)).
+Let's try to simulate beta distribution with $\alpha$  = 4.5 and $\beta$ = 1. The Left chart shows PDF of Beta , Simulated beta using above methodology and Normal distribution with mean = $\mu$($\beta$($4.5,1$)), std = $\sigma$($\beta$($4.5,1$)). right chart shows the cumulative distribution of the same except Nomral. 
 
 
-<a href="/assets/images/2021/Oct/FourMomentSimulation_Sim.jpg"><img src="/assets/images/2021/Oct/FourMomentSimulation_Sim.jpg"></a>
+<figure class="half"> 
+<a href="/assets/images/2022/Dec/FourMomentSimulation_Pdf.jpg"><img src="/assets/images/2022/Dec/FourMomentSimulation_Pdf.jpg"></a>
+<a href="/assets/images/2022/Dec/FourMomentSimulation_CumSim.jpg"><img src="/assets/images/2022/Dec/FourMomentSimulation_CumSim.jpg"></a>
+</figure>
+
+> Pdf and it's Cummulative distribution is very close to each other KS statstic of the same.  
 
 Table with first four moment values for all 3 cases:
 
 | Stats | Beta | Normal | Simulation |
 | :-------: | :---------: | :---------: | :---------: | 
-| Mean | 0.817758 | 0.814272| 0.812858| 
-| Std | 0.150223 |0.150879 | 0.156247|
-| Skew | -1.108570| 0 | -1.221340|
-| Kurt | 0.815587| 0 | 1.672359|
+| Mean | 0.82 | 0.82 | 0.81 | 
+| Std | 0.15 |0.15 | 0.15|
+| Skew | -1.13| 0 | -1.08 |
+| Kurt | 1.02 | 0 | 0.88|
 
 
 
