@@ -43,3 +43,5 @@ MaxDD(W) = \max_{t\varepsilon[0,T]}{D(W,t)}
 \end{equation}
 
 $$ AvDD(W) = \frac{1}{T} \int_{0}^{T} D(W,t) \,dt $$
+
+# WIP
