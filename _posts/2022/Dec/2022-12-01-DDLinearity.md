@@ -12,7 +12,7 @@ tags:
 --- 
 <!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1OonMdRn8GxvdiRFQ17sm2d0qyiLISxyS?usp=sharing) -->
 
-In this article we will first disucss the conditional drawdown at risk (CDaR), it's special cases, maximum drawdown and average drawdown. then we will move to the optimization problem for return CDaR efficient frontier. 
+In this article we will first disucss the conditional drawdown at risk (CDaR), it's special cases, maximum drawdown and average drawdown. then we will move to the optimization problem for return CDaR efficient frontier as discussed by Uryasev,et. in [1]. 
 
 ### Assumption:
 This approach concentrate on the portfolio equity curves over a particular sample-path (historical or most probable future sample-path), i.e. we define some sample-path risk function rather than a risk measure on set of sample-paths. Making no assumption about the underlying probabilty distribution which unlocks various practical application.
@@ -158,8 +158,13 @@ as $$z_k$$ is always positive
 z_k \geq 0
 \end{equation}
 
-Similar to MaxDD, Optimization problem converted to maximization of return constrained on equations (14), (15) and from (8) to (10).
+Similar to MaxDD, Optimization problem converted to maximization of return constrained on equations (14), (15) and from (8) to (10) <br/>
 
+An important feature of above formulation is that it does not involve the threshold function $$\zeta_\alpha$$ . At an optimal solution of the problem, variables $$ W $$ and $$ \zeta_\alpha $$ give an optimal portfolio and corresponding value of the threshold function.Refer to [2] for more discussion on this 
+
+### Link:
+[1] Alexei Chekhlov, Stanislav Uryasev, Michael Zabarankin. Portfolio Optimization With Drawdown Constraints.  <a href = "https://www.ise.ufl.edu/uryasev/files/2011/11/drawdown.pdf"> here</a> <br/>
+[2] R. Tyrrell Rockafellar, Stanislav Uryasev. Optimization of conditional value-at-risk. <a href = "https://www.ise.ufl.edu/uryasev/files/2011/11/CVaR1_JOR.pdf"> here</a>
 
 
 
