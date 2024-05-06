@@ -11,16 +11,15 @@ tags:
 
 --- 
 <!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1OonMdRn8GxvdiRFQ17sm2d0qyiLISxyS?usp=sharing) -->
-
-In this article we will first discuss the conditional drawdown at risk (CDaR), it's special cases, maximum drawdown and average drawdown. then we will move to the optimization problem for return CDaR efficient frontier as discussed by Uryasev,et. in [1]. 
+In this article, we will first discuss the conditional drawdown at risk (CDaR), its special cases, maximum drawdown and average drawdown. then we will move to the optimization problem for return CDaR efficient frontier as discussed by Uryasev, et. in [1]. 
 
 ### Assumption:
-This approach concentrates on the portfolio equity curves over a particular sample-path (historical or most probable future sample-path), i.e. we define some sample path risk function rather than a risk measure on set of sample-paths. Making no assumption about the underlying probability distribution which unlocks various practical application.
+This approach concentrates on the portfolio equity curves over a particular sample-path (historical or most probable future sample-path), i.e. we define some sample path risk function rather than a risk measure on a set of sample-paths. Making no assumption about the underlying probability distribution which unlocks various practical applications.
 
 ## CDaR:
 For some value of the confidence parameter $\alpha$, the $\alpha$-CDaR is defined as the mean of the worst (1−$\alpha$)∗100% drawdowns experienced over some period of time on a sample-path. <br/>
 
-The CDaR risk function is based on CVaR concept and can be viewed as a modification of the CVaR to the case when the loss-function is defined as a drawdown. Similar to CVaR, i.e. average of all losses which is greater than equal to $\alpha$-VaR, CDaR is the average of all the drawdowns which are greater than equal to $\alpha$ drawdown at risk ( $\zeta_\alpha$ ) such that low CVaR ensures low VaR<br/>
+The CDaR risk function is based on the CVaR concept and can be viewed as a modification of the CVaR to the case when the loss-function is defined as a drawdown. Similar to CVaR, i.e. average of all losses which is greater than equal to $\alpha$-VaR, CDaR is the average of all the drawdowns which are greater than equal to $\alpha$ drawdown at risk ( $\zeta_\alpha$ ) such that low CVaR ensures low VaR<br/>
 
 
 > Risk functions are parameterized by weight matrix of the portfolio W, T is total time period considered for the calculation. sample path time horizon. 
@@ -50,7 +49,7 @@ AvDD(W) = \frac{1}{T} \int_{0}^{T} D(W,t) \,dt
 
 ## Linear optimization:
 ### MaxDD:
-we will consider the modification of classic optimization problem related to return risk efficient frontier. here we will maximize the return while constraining maximum drawdown to a pre-defined level. 
+we will consider the modification of classic optimization problems related to return risk efficient frontier. here we will maximize the return while constraining the maximum drawdown to a pre-defined level. 
 
 $$ \max_{W}{W^TR} $$
 
@@ -60,7 +59,7 @@ $$ MaxDD(W) <= v_1C $$ <br/>
 
 Where $$R$$ is a return matrix $$R =[r_1, r_2, r_3,...r_\gamma]; \gamma$$ is all constituents  and $$v_1$$ is percentage of the deployed capital $$C$$ allowed to be in drawdown.
 
-Maximum drawdown is not Linear in terms of parameter $$W$$. It can be changed using auxiliary variable as follows:
+Maximum drawdown is not Linear in terms of parameter $$W$$. It can be changed using an auxiliary variable as follows:
 
 \begin{equation}
 \tag{4}
@@ -72,7 +71,7 @@ MaxDD(W) : \max_{k\varepsilon(0,T)}{DD_k} \leq v_1C
 MaxDD(W) : \max_{k\varepsilon(0,T)}{((\max_{j\varepsilon(0,k)}{W^TR_j}) - W^TR_k)} \leq v_1C
 \end{equation}
 
-Converting the first maximum function in eq(5), using the property of maximum which apply constraint on each day to be less than the desired drawdown:
+Converting the first maximum function in eq(5), using the property of maximum which applies a constraint on each day to be less than the desired drawdown:
 
 \begin{equation}
 \tag{6}
@@ -108,7 +107,7 @@ u_k\geq W^TR_j  \hspace{2mm} \forall\hspace{1mm}  j\varepsilon[0,k] ,\hspace{1mm
 W_{min} \leq W \leq W_{max}
 \end{equation}
 
-So, the optimization converted to convex optimization problem with a linear performance function and piece-wise linear convex constraint given by maximization of return constrained on equations from (6) to (10). 
+So, the optimization converted to a convex optimization problem with a linear performance function and piece-wise linear convex constraint given by maximization of return constrained on equations from (6) to (10). 
 
 ### CDaR:
  
@@ -158,9 +157,9 @@ as $$z_k$$ is always positive
 z_k \geq 0
 \end{equation}
 
-Similar to MaxDD, Optimization problem converted to maximization of return constrained on equations (14), (15) and from (8) to (10) <br/>
+Similar to MaxDD, the Optimization problem converted to maximization of return constrained on equations (14), (15) and from (8) to (10) <br/>
 
-An important feature of above formulation is that it does not involve the threshold function $$\zeta_\alpha$$ . At an optimal solution of the problem, variables $$ W $$ and $$ \zeta_\alpha $$ give an optimal portfolio and corresponding value of the threshold function.Refer to [2] for more discussion on this 
+An important feature of the above formulation is that it does not involve the threshold function $$\zeta_\alpha$$ . At an optimal solution of the problem, variables $$ W $$ and $$ \zeta_\alpha $$ give an optimal portfolio and corresponding value of the threshold function. Refer to 2] for more discussion on this 
 
 ### Link:
 [1] *Alexei Chekhlov, Stanislav Uryasev, Michael Zabarankin.* Portfolio Optimization With Drawdown Constraints.  <a href = "https://www.ise.ufl.edu/uryasev/files/2011/11/drawdown.pdf"> here</a> <br/>
