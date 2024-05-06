@@ -15,7 +15,7 @@ tags:
 In this article we will first discuss the conditional drawdown at risk (CDaR), it's special cases, maximum drawdown and average drawdown. then we will move to the optimization problem for return CDaR efficient frontier as discussed by Uryasev,et. in [1]. 
 
 ### Assumption:
-This approach concentrates on the portfolio equity curves over a particular sample-path (historical or most probable future sample-path), i.e. we define some sample path risk function rather than a risk measure on set of sample-paths. Making no assumption about the underlying probabilty distribution which unlocks various practical application.
+This approach concentrates on the portfolio equity curves over a particular sample-path (historical or most probable future sample-path), i.e. we define some sample path risk function rather than a risk measure on set of sample-paths. Making no assumption about the underlying probability distribution which unlocks various practical application.
 
 ## CDaR:
 For some value of the confidence parameter $\alpha$, the $\alpha$-CDaR is defined as the mean of the worst (1−$\alpha$)∗100% drawdowns experienced over some period of time on a sample-path. <br/>
