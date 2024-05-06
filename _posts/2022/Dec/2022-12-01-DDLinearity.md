@@ -163,8 +163,8 @@ Similar to MaxDD, Optimization problem converted to maximization of return const
 An important feature of above formulation is that it does not involve the threshold function $$\zeta_\alpha$$ . At an optimal solution of the problem, variables $$ W $$ and $$ \zeta_\alpha $$ give an optimal portfolio and corresponding value of the threshold function.Refer to [2] for more discussion on this 
 
 ### Link:
-[1] Alexei Chekhlov, Stanislav Uryasev, Michael Zabarankin. Portfolio Optimization With Drawdown Constraints.  <a href = "https://www.ise.ufl.edu/uryasev/files/2011/11/drawdown.pdf"> here</a> <br/>
-[2] R. Tyrrell Rockafellar, Stanislav Uryasev. Optimization of conditional value-at-risk. <a href = "https://www.ise.ufl.edu/uryasev/files/2011/11/CVaR1_JOR.pdf"> here</a>
+[1] *Alexei Chekhlov, Stanislav Uryasev, Michael Zabarankin.* Portfolio Optimization With Drawdown Constraints.  <a href = "https://www.ise.ufl.edu/uryasev/files/2011/11/drawdown.pdf"> here</a> <br/>
+[2] *R. Tyrrell Rockafellar, Stanislav Uryasev.* Optimization of conditional value-at-risk. <a href = "https://www.ise.ufl.edu/uryasev/files/2011/11/CVaR1_JOR.pdf"> here</a>
 
 
 
