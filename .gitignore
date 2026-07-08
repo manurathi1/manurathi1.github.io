@@ -1,12 +1,7 @@
-# Jekyll (current site)
-_site
-.sass-cache
-.jekyll-metadata
-Gemfile.lock
-
-# Quarto (incoming site — Phase 3)
+# Quarto
 /.quarto/
 /_site/
+**/*.quarto_ipynb
 
 # OS / editor cruft
 .DS_Store

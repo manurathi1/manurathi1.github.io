@@ -24,37 +24,35 @@ with:
 
 Treat that repo as read-only context; don't edit it from here.
 
-## Current stack (being migrated)
+## Stack
 
-Today the site is **Jekyll + the Minimal Mistakes theme, fully vendored** into the repo
-(`_layouts/`, `_includes/`, `_sass/` are copies of the theme, not a gem/remote_theme).
-It builds with `bundle exec jekyll build`. Content is 4 posts under `_posts/YYYY/Mon/`,
-with assets in a parallel tree under `assets/images/YYYY/Mon/`.
-
-## Direction (decided)
-
-We are revamping the site onto **Quarto** with a **distinctive, custom-branded** design —
-chosen because equations, charts, executable code, and Jupyter notebooks are first-class
-in Quarto, which fits the content. Planned target structure:
+**Quarto**, custom-branded, deployed via GitHub Actions
+(`.github/workflows/publish-quarto.yml`) to GitHub Pages. Chosen because equations,
+charts, executable code, and Jupyter notebooks are first-class in Quarto, which fits the
+content.
 
 ```
 _quarto.yml            site config, nav, theme
-index.qmd              landing page (hero + featured writing + projects)
+index.qmd              homepage (hero + writing-first post listing)
 about.qmd              bio (sourced from ../resume)
 projects.qmd           work showcase (FinLens AI, Agentic Smallcases, quant infra)
 posts/
   _metadata.yml        shared post defaults
-  <slug>/index.qmd     one folder per post; assets colocated with the post
-theme/custom.scss      custom branding, light + dark mode
+  <slug>/index.qmd     one folder per post; images colocated with the post
+theme/
+  light.scss           custom branding — light mode (default)
+  dark.scss            custom branding — dark mode
+  styles.css           small shared tweaks that don't need SCSS variables
+static/                personal media not tied to a specific post (photos, resume PDF)
 ```
 
-Organization is **metadata-driven** via frontmatter (`categories`, `tags`, and a `series`
-field for multi-part deep-dives) — not folder-by-year. **Preserve existing post URLs** on
-migration (aliases) to avoid breaking indexed links. Deploy via a GitHub Action that builds
-Quarto and publishes to Pages, replacing the native Jekyll build.
+Organization is **metadata-driven** via frontmatter (`categories`, and a `series` field
+for multi-part deep-dives) — not folder-by-year. Every migrated post carries `aliases:`
+entries preserving its original Jekyll URL — preserve this pattern for any future URL
+changes.
 
-Migration runs *alongside* the live Jekyll site; retire Jekyll only after the Quarto site is
-verified live.
+The site previously ran on Jekyll + a fully-vendored Minimal Mistakes theme; that has
+been fully retired (files removed, not just excluded) now that Quarto is verified live.
 
 ## Conventions
 
@@ -62,3 +60,6 @@ verified live.
 - Commit only when asked; branch off `master` first if starting a larger change.
 - Canonical contact (keep consistent with `../resume`): manurathi.jaipur@gmail.com,
   GitHub `manurathi1`, Twitter `manurathi2`, LinkedIn `manurathi`.
+- New posts: one folder under `posts/`, `index.qmd` inside, images alongside it. Use
+  Quarto's native `$$ ... $$ {#eq-label}` equations (auto-numbered, cross-reference with
+  `@eq-label`) rather than raw `\begin{equation}\tag{}` blocks.

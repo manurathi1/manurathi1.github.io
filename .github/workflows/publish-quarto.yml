@@ -28,13 +28,12 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Render site
-        working-directory: quarto-site
         run: quarto render
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: quarto-site/_site
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
