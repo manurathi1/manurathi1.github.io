@@ -1,0 +1,61 @@
+---
+title: "Work"
+subtitle: "A selection of systems I've built, from quant infrastructure to production LLM platforms."
+---
+
+::: {.project-card}
+### FinLens AI Platform
+<div class="project-meta">Windmill Capital · Tech lead &amp; architect · 2026</div>
+
+A 3-system AI analyst platform: earnings-call PDFs through an 8-step LLM pipeline into
+structured outputs, 7 S3 Vector indexes (70k+ vectors) across concalls, broker reports,
+PPTs and news, and a FastAPI + React front end exposing 31 MCP tools and 25 analyst skill
+playbooks. Includes a Walk-The-Talk credibility system — an LLM-as-judge pipeline that
+scores management commitments as fulfilled, vague, or unaddressed — and a standalone
+DRHP/IPO analysis pipeline combining LLM extraction with 20+ deterministic ratios.
+:::
+
+::: {.project-card}
+### Agentic Smallcases
+<div class="project-meta">Windmill Capital · Design · 2026</div>
+
+Multi-agent AI portfolios (Pulse / Anchor) built over the MCP tool stack: parallel
+bull/bear debate agents, a chartist price-anomaly channel, and an LLM-as-judge evaluation
+layer with a deterministic pre-flight validator and look-ahead-safe backtesting. Used to
+classify a 333-stock CleanTech universe via ~18 parallel research agents.
+:::
+
+::: {.project-card}
+### Quant Infrastructure &amp; Portfolio Management
+<div class="project-meta">Windmill Capital · 2019–present</div>
+
+A Python backtesting framework (Sharpe / risk parity / diversification-ratio
+optimization, transaction costs) that became the platform-wide publisher validation
+standard, adopted by Zerodha MF. Five-factor fundamental scoring and a growth-score
+system drive quarterly rebalances across live portfolios.
+:::
+
+::: {.project-card}
+### Subscription Prediction (ML)
+<div class="project-meta">Windmill Capital · 2021–2025</div>
+
+A multi-model random-forest ensemble on AWS Athena + S3, reduced from 721 to 73
+variables via ladder validation, reaching 80% recall — the top 15% of the user base
+captures 75–80% of eventual subscribers, with 164–223 days of advance signal.
+:::
+
+::: {.project-card}
+### Risk Optimization from Scratch
+<div class="project-meta">Quant One Technologies · 2017–2018</div>
+
+MaxDD and CDaR linear/nonlinear optimization, Fleishman's power method for four-moment
+simulation, and Kelly / CPPI / Markowitz allocation — built in R with `nloptr`
+(L-BFGS, COBYLA, Nelder–Mead). Some of this thinking became the
+[Drawdown and Its Linearity](posts/2022-drawdown-linearity/index.qmd) post.
+:::
+
+<!--
+DRAFT NOTE: pulled from ../resume/resumes/one-pager-hybrid.md and ../resume/work/** as a
+starting point. Refine scope/wording with Manu — this is Phase 1 (identity) content
+surfaced early so the Phase 3 design has real copy to render against.
+-->

@@ -1,0 +1,55 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "101"
+  description: "Quant & AI, from first principles"
+  site-url: "https://manurathi1.github.io"
+  favicon: theme/favicon.svg
+  page-navigation: true
+  reader-mode: false
+  navbar:
+    background: light
+    left:
+      - text: "Writing"
+        href: index.qmd
+      - text: "Work"
+        href: projects.qmd
+      - text: "About"
+        href: about.qmd
+    right:
+      - icon: github
+        href: https://github.com/manurathi1
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/manurathi/
+        aria-label: LinkedIn
+      - icon: twitter
+        href: https://twitter.com/manurathi2
+        aria-label: Twitter
+  page-footer:
+    left: "© 2026 Manu Rathi"
+    right:
+      - icon: github
+        href: https://github.com/manurathi1
+      - icon: envelope
+        href: mailto:manurathi.jaipur@gmail.com
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme/light.scss]
+      dark: [darkly, theme/dark.scss]
+    css: theme/styles.css
+    toc: true
+    toc-depth: 3
+    code-fold: false
+    code-tools: false
+    html-math-method: katex
+    highlight-style: github
+    smooth-scroll: true
+    link-external-newwindow: true
+
+execute:
+  freeze: auto

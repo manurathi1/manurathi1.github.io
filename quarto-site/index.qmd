@@ -1,0 +1,24 @@
+---
+title: ""
+page-layout: full
+title-block-banner: false
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  feed: true
+  date-format: "MMM YYYY"
+---
+
+::: {.hero}
+<div class="hero-mark">101</div>
+<div class="hero-tagline">Quant &amp; AI, from first principles</div>
+<div class="hero-intro">
+Notes on portfolio risk, simulation, and the LLM systems built on top of them —
+written by [Manu Rathi](about.qmd), Director (Research) at Windmill Capital.
+See also: [what I've built](projects.qmd).
+</div>
+:::

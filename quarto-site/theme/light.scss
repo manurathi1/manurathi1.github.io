@@ -1,0 +1,161 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+// Palette — warm paper / ink editorial
+$paper:      #faf9f6;
+$paper-alt:  #f2f0ea;
+$ink:        #17170f;
+$ink-soft:   #4a4940;
+$muted:      #837f72;
+$rule:       #e3e0d5;
+$accent:     #0f766e; // muted teal
+$accent-2:   #b5461d; // warm rust, used sparingly (blockquote/callouts)
+
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: $accent;
+
+$font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-serif: "Source Serif 4", Georgia, serif;
+$font-family-monospace: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+$headings-font-family: $font-family-serif;
+$headings-color: $ink;
+$headings-font-weight: 600;
+
+$navbar-bg: $paper;
+$navbar-fg: $ink;
+$navbar-hl: $accent;
+
+$code-color: $accent-2;
+$code-bg: $paper-alt;
+
+$border-color: $rule;
+$table-border-color: $rule;
+
+/*-- scss:rules --*/
+
+body {
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.navbar {
+  border-bottom: 1px solid $rule;
+  box-shadow: none !important;
+}
+
+.navbar-title {
+  font-family: $font-family-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+h1, h2, h3, h4 {
+  letter-spacing: -0.01em;
+}
+
+h1.title {
+  font-size: 2.4rem;
+}
+
+// Hero block on homepage
+.hero {
+  padding: 0 0 2.5rem;
+  border-bottom: 1px solid $rule;
+  margin-bottom: 2.5rem;
+
+  .hero-mark {
+    font-family: $font-family-serif;
+    font-weight: 700;
+    font-size: 2.75rem;
+    color: $ink;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-tagline {
+    font-family: $font-family-serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: $ink-soft;
+    margin-bottom: 1rem;
+  }
+
+  .hero-intro {
+    max-width: 42rem;
+    color: $ink-soft;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+}
+
+// Post listing cards
+.quarto-listing .quarto-post,
+.quarto-listing .quarto-grid-item {
+  border-bottom: 1px solid $rule;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.quarto-listing .listing-date,
+.quarto-listing .quarto-post .metadata {
+  font-family: $font-family-monospace;
+  font-size: 0.8rem;
+  color: $muted;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.quarto-listing .quarto-post .title,
+.quarto-listing .quarto-post .listing-title {
+  font-family: $font-family-serif;
+  font-weight: 600;
+}
+
+.quarto-listing .quarto-post .description {
+  color: $ink-soft;
+}
+
+// Work / project cards
+.project-card {
+  border: 1px solid $rule;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  background: $paper-alt;
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.15rem;
+  }
+
+  .project-meta {
+    font-family: $font-family-monospace;
+    font-size: 0.78rem;
+    color: $muted;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5rem;
+  }
+}
+
+blockquote {
+  border-left: 3px solid $accent-2;
+  color: $ink-soft;
+  font-family: $font-family-serif;
+  font-style: italic;
+}
+
+code {
+  border-radius: 3px;
+  padding: 0.1em 0.3em;
+}
+
+a {
+  text-underline-offset: 0.15em;
+}
+
+::selection {
+  background: rgba($accent, 0.18);
+}

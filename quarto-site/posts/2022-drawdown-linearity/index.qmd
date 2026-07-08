@@ -1,0 +1,182 @@
+---
+title: "Drawdown and Its Linearity"
+description: "Conditional drawdown at risk, its special cases, and how to make the optimization linear using an auxiliary variable."
+date: 2022-12-01
+categories: [Optimization, Risk]
+aliases:
+  - /DDLinearity/
+  - /DDLinearity/index.html
+---
+
+In this article, we first discuss the conditional drawdown at risk (CDaR), its special
+cases — maximum drawdown and average drawdown — and then move to the optimization
+problem for the return–CDaR efficient frontier as discussed by Uryasev et al. [^1]
+
+## Assumption
+
+This approach concentrates on the portfolio equity curve over a particular sample path
+(historical, or the most probable future sample path) — i.e. we define a sample-path
+risk function rather than a risk measure over a *set* of sample paths. It makes no
+assumption about the underlying probability distribution, which unlocks various
+practical applications.
+
+## CDaR
+
+For some value of the confidence parameter $\alpha$, the $\alpha$-CDaR is defined as the
+mean of the worst $(1-\alpha) \times 100\%$ drawdowns experienced over some period of
+time on a sample path.
+
+The CDaR risk function is based on the CVaR concept and can be viewed as a modification
+of CVaR to the case where the loss function is defined as a drawdown. Similarly to CVaR
+— the average of all losses greater than or equal to $\alpha$-VaR — CDaR is the average
+of all drawdowns greater than or equal to the $\alpha$ drawdown-at-risk ($\zeta_\alpha$),
+such that a low CVaR ensures a low VaR.
+
+> Risk functions are parameterized by the portfolio weight matrix $W$; $T$ is the total
+> time period considered for the calculation — the sample-path time horizon.
+
+$$
+CDaR_\alpha(W) = \frac{1}{(1- \alpha)T} \int_{\Omega_\alpha} D(W,t) \,dt
+$$ {#eq-cdar}
+
+where $\Omega(W) = \{t \in [0,T] : D(W,t) \geq \zeta_\alpha(W)\}$.
+
+> By definition, with a specified probability $\alpha$, the $\alpha$-DaR ($\zeta_\alpha$)
+> of a portfolio is the lowest amount such that the probability the drawdown will not
+> exceed $\zeta_\alpha$ is greater than or equal to $\alpha$.
+
+We consider two risk functions that are special cases of CDaR — maximum drawdown (MaxDD)
+and average drawdown (AvDD) — which are limiting cases as $\alpha \to 1$ and
+$\alpha \to 0$ respectively:
+
+$$
+MaxDD(W) = \max_{t \in [0,T]} D(W,t)
+$$ {#eq-maxdd}
+
+$$
+AvDD(W) = \frac{1}{T} \int_{0}^{T} D(W,t) \,dt
+$$ {#eq-avdd}
+
+## Linear optimization
+
+### MaxDD
+
+We consider a modification of the classic return–risk efficient-frontier optimization:
+maximize return while constraining maximum drawdown to a pre-defined level.
+
+$$ \max_{W}{W^TR} $$
+
+constrained on
+
+$$ MaxDD(W) \leq v_1 C $$
+
+where $R$ is the return matrix $R = [r_1, r_2, r_3, \dots, r_\gamma]$, $\gamma$ is all
+constituents, and $v_1$ is the percentage of deployed capital $C$ allowed to be in
+drawdown.
+
+Maximum drawdown is **not linear** in the parameter $W$. It can be made linear using an
+auxiliary variable, as follows:
+
+$$
+MaxDD(W) : \max_{k \in (0,T)} DD_k \leq v_1 C
+$$ {#eq-maxdd-k}
+
+$$
+MaxDD(W) : \max_{k \in (0,T)} \Big( \big(\max_{j \in (0,k)} W^TR_j\big) - W^TR_k \Big) \leq v_1 C
+$$ {#eq-maxdd-aux}
+
+Converting the first maximum function in @eq-maxdd-aux, using the property of maximum,
+applies a constraint on each day to be less than the desired drawdown:
+
+$$
+MaxDD(W): \big(\max_{j \in (0,k)} W^TR_j\big) - W^TR_k \leq v_1 C \quad \forall\ k \in [0,T]
+$$ {#eq-maxdd-linear1}
+
+Converting the second max function:
+
+$$
+MaxDD(W) : u_k - W^TR_k \leq v_1 C \quad \forall\ k \in [0,T]
+$$ {#eq-maxdd-linear2}
+
+where $u_k = \max_{j \in (0,k)} (W^TR_j)$ is an auxiliary variable.
+
+Defining $u_k$ in @eq-maxdd-linear2: $u_k$ is equal to a maximum function, hence it's an
+increasing function.
+
+$$
+u_k \geq u_{k-1} \quad \forall\ k \in [0,T],\ \text{with } u_0 = 0
+$$ {#eq-uk-increasing}
+
+Also, $u_k$ should be equal to or greater than $W^TR_j$:
+
+$$
+u_k \geq W^TR_j \quad \forall\ j \in [0,k],\ k \in [0,T]
+$$ {#eq-uk-geq}
+
+$$
+W_{min} \leq W \leq W_{max}
+$$ {#eq-w-bounds}
+
+So the optimization is converted to a convex optimization problem with a linear
+performance function and a piecewise-linear convex constraint, given by maximizing
+return subject to @eq-maxdd-linear1 through @eq-w-bounds.
+
+### CDaR
+
+$$ \max_{W}{W^TR} $$
+
+constrained on
+
+$$ CDaR_\alpha(W) \leq v_2 C $$
+
+Rewriting @eq-cdar:
+
+$$
+CDaR_\alpha(W) = \min_{\zeta}\Big[\zeta+\frac{\sum_{k \in (0,T)}[DD_k-\zeta]^+}{(1-\alpha)T}\Big]
+$$ {#eq-cdar-rewrite}
+
+where the function $[x]^+$ is defined as $\max(0,x)$.
+
+The CDaR constraint function can be linearized as follows:
+
+$$
+\zeta+\frac{\sum_{k \in (0,T)}z_k}{(1-\alpha)T}
+$$ {#eq-cdar-linear}
+
+Defining $z_k$:
+
+$$ z_k = [DD_k-\zeta]^+ $$
+
+Since $z_k$ is the positive part:
+
+$$
+z_k \geq DD_k - \zeta \quad \forall\ k \in [0,T]
+$$ {#eq-zk-geq}
+
+Using @eq-maxdd-linear2, $DD_k$ can be written in terms of $u_k$:
+
+$$
+z_k \geq u_k - W^TR_k - \zeta \quad \forall\ k \in [0,T]
+$$ {#eq-zk-uk}
+
+And since $z_k$ is always positive:
+
+$$
+z_k \geq 0
+$$ {#eq-zk-pos}
+
+Similarly to MaxDD, the optimization problem converts to maximizing return subject to
+@eq-zk-uk, @eq-zk-pos, and @eq-uk-increasing through @eq-w-bounds.
+
+An important feature of this formulation is that it does not involve the threshold
+function $\zeta_\alpha$ directly. At the optimal solution, the variables $W$ and
+$\zeta_\alpha$ together give the optimal portfolio and the corresponding value of the
+threshold function — see [^2] for further discussion.
+
+[^1]: Alexei Chekhlov, Stanislav Uryasev, Michael Zabarankin. *Portfolio Optimization
+    With Drawdown Constraints.*
+    [ise.ufl.edu/uryasev](https://www.ise.ufl.edu/uryasev/files/2011/11/drawdown.pdf)
+
+[^2]: R. Tyrrell Rockafellar, Stanislav Uryasev. *Optimization of Conditional
+    Value-at-Risk.*
+    [ise.ufl.edu/uryasev](https://www.ise.ufl.edu/uryasev/files/2011/11/CVaR1_JOR.pdf)

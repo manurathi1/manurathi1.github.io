@@ -1,0 +1,14 @@
+/* Small tweaks shared by both light and dark themes that don't need SCSS variables. */
+
+.quarto-title-banner,
+#title-block-header.quarto-title-block:empty {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero .hero-mark sup {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.6;
+}

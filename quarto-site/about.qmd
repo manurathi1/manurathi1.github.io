@@ -1,0 +1,37 @@
+---
+title: "About"
+aliases:
+  - /about/
+  - /about/index.html
+---
+
+I'm Manu Rathi — Director (Research) at Windmill Capital (Smallcase Technologies) in
+Bengaluru, where I work at the intersection of **quantitative finance and applied AI**.
+
+I graduated from IIT Bombay (B.Tech, Civil Engineering, completed in 3.5 years) in 2017,
+and have spent my career since then building systems that sit between markets and
+models: factor research and portfolio optimization on one side, and — more recently —
+LLM-driven analyst tooling on the other.
+
+Most recently I've led **FinLens AI**, a production platform that turns earnings calls,
+broker reports, and news into structured, cross-referenced investment research — built
+on retrieval over vector search, an MCP tool layer, and an LLM-as-judge evaluation loop.
+Before that: RAG systems for financial Q&A, a random-forest subscription predictor, and —
+going back to my first job at Quant One Technologies — risk optimization systems built
+from scratch (CDaR, Kelly, Fleishman's four-moment simulation).
+
+This site is where I write about that work and the ideas behind it — quant methods,
+simulation, risk, and, increasingly, how LLMs get built into real financial systems.
+
+---
+
+**Reach me:** [manurathi.jaipur@gmail.com](mailto:manurathi.jaipur@gmail.com) ·
+[GitHub](https://github.com/manurathi1) ·
+[LinkedIn](https://www.linkedin.com/in/manurathi/) ·
+[Twitter](https://twitter.com/manurathi2)
+
+<!--
+DRAFT NOTE: pulled from ../resume/resumes/one-pager-hybrid.md and detailed.md as a
+starting point. Refine tone/length with Manu before shipping — this is Phase 1
+(identity) content surfaced early so the Phase 3 design has real copy to render against.
+-->
