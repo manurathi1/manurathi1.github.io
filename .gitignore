@@ -1,4 +1,14 @@
+# Jekyll (current site)
 _site
 .sass-cache
 .jekyll-metadata
 Gemfile.lock
+
+# Quarto (incoming site — Phase 3)
+/.quarto/
+/_site/
+
+# OS / editor cruft
+.DS_Store
+*.swp
+.vscode/
